@@ -1,7 +1,9 @@
 import database from "infra/database.js";
+import orchestrator from "tests/orchestrator.js";
 
 beforeAll(cleanDatabase);
 async function cleanDatabase() {
+  await orchestrator.waitForAllServices();
   await database.query("drop schema public cascade; create schema public;");
 }
 
@@ -22,7 +24,7 @@ test("POST to /api/v1/migrations should return 200", async () => {
   expect(response2.status).toBe(200);
 
   const responseBody2 = await response2.json();
-  console.log(responseBody2);
+  // console.log(responseBody2);
 
   expect(Array.isArray(responseBody2)).toBe(true);
   expect(responseBody2.length).toBe(0);
