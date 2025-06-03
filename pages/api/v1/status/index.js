@@ -1,7 +1,7 @@
 import { InternalServerError } from "infra/errors";
 import database from "infra/database.js";
 
-async function status(request, response) {
+async function status(_request, response) {
   try {
     const updatedAt = new Date().toISOString();
 
