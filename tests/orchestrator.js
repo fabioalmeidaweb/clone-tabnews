@@ -50,7 +50,7 @@ const orchestrator = {
   clearDatabase,
   runPendingMigrations,
   createUser,
-  createSession
+  createSession,
 };
 
 export default orchestrator;
